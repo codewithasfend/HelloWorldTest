@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RealEstateApp.HomePage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#fafafa">
+    <Grid RowDefinitions="Auto,Auto,Auto,Auto"
+          Margin="20"
+          RowSpacing="20">
+        <StackLayout Grid.Row="0"
+                     Spacing="5"
+                     Orientation="Vertical">
+            <Label Text="Hi John"
+                   FontSize="Large"
+                   FontAttributes="Bold" />
+            <Label Text="Find your best place to stay"
+                   FontSize="Medium"
+                   FontAttributes="Bold" />
+        </StackLayout>
+        <Frame Grid.Row="1"
+               Padding="15">
+            <StackLayout Orientation="Horizontal"
+                         Spacing="20">
+                <Image Source="search_icon.svg"
+                       Aspect="AspectFit"
+                       HeightRequest="25"
+                       WidthRequest="25" />
+                <Label Text="Search..."
+                       VerticalOptions="Center" />
+            </StackLayout>
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer x:Name="TapSearch"
+                                      Tapped="TapSearch_Tapped" />
+            </Frame.GestureRecognizers>
+        </Frame>
+        <StackLayout Grid.Row="2"
+                     Spacing="20">
+            <Label Text="Categories"
+                   FontSize="Large"
+                   FontAttributes="Bold" />
+            <StackLayout Orientation="Horizontal"
+                         Spacing="20">
+                <Frame Padding="15,10,15,10"
+                       BackgroundColor="White">
+                    <StackLayout Orientation="Horizontal"
+                                 Spacing="5">
+                        <Image Source="dotnet_bot"
+                               Aspect="AspectFit"
+                               HeightRequest="30"
+                               WidthRequest="30" />
+                        <Label Text="House"
+                               VerticalOptions="Center"
+                               FontSize="Medium" />
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="TapCategory"
+                                              Tapped="TapCategory_Tapped" />
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <Frame Padding="15,10,15,10"
+                       BackgroundColor="White">
+                    <StackLayout Orientation="Horizontal"
+                                 Spacing="5">
+                        <Image Source="dotnet_bot"
+                               Aspect="AspectFit"
+                               HeightRequest="30"
+                               WidthRequest="30" />
+                        <Label Text="Hotels"
+                               VerticalOptions="Center"
+                               FontSize="Medium" />
+                    </StackLayout>
+                </Frame>
+                <Frame Padding="15,10,15,10"
+                       BackgroundColor="White">
+                    <StackLayout Orientation="Horizontal"
+                                 Spacing="5">
+                        <Image Source="dotnet_bot"
+                               Aspect="AspectFit"
+                               HeightRequest="30"
+                               WidthRequest="30" />
+                        <Label Text="Appartments"
+                               VerticalOptions="Center"
+                               FontSize="Medium" />
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout Orientation="Vertical"
+                     Grid.Row="3"
+                     Spacing="20">
+            <Label Text="Top Picks"
+                   FontSize="Large"
+                   FontAttributes="Bold" />
+            <StackLayout Orientation="Horizontal"
+                         Spacing="20">
+                <Frame BackgroundColor="White"
+                       CornerRadius="30"
+                       Padding="15">
+                    <StackLayout Orientation="Vertical"
+                                 Spacing="10">
+                        <Border>
+                            <Image Source="house01.jpg"
+                                   Aspect="Fill"
+                                   HeightRequest="220"
+                                   WidthRequest="240" />
+                            <Border.StrokeShape>
+                                <RoundRectangle  CornerRadius="30" />
+                            </Border.StrokeShape>
+                        </Border>
+                        <Label Text="Modern Family House"
+                               FontSize="Subtitle"
+                               FontAttributes="Bold" />
+                        <Label Text="Old Downtown Road"
+                               LineBreakMode="TailTruncation"
+                               FontSize="Small" />
+                        <Label Text="85000 $"
+                               FontSize="Subtitle"
+                               TextColor="#1d94ab" />
+                    </StackLayout>
+                </Frame>
+                <Frame BackgroundColor="White"
+                       CornerRadius="30"
+                       Padding="15">
+                    <StackLayout Orientation="Vertical"
+                                 Spacing="10">
+                        <Border>
+                            <Image Source="house02.jpg"
+                                   Aspect="Fill"
+                                   HeightRequest="220"
+                                   WidthRequest="240" />
+                            <Border.StrokeShape>
+                                <RoundRectangle  CornerRadius="30" />
+                            </Border.StrokeShape>
+                        </Border>
+                        <Label Text="Modern Family House"
+                               FontSize="Subtitle"
+                               FontAttributes="Bold" />
+                        <Label Text="Old Downtown Road"
+                               LineBreakMode="TailTruncation"
+                               FontSize="Small" />
+                        <Label Text="85000 $"
+                               FontSize="Subtitle"
+                               TextColor="#1d94ab" />
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </StackLayout>
+    </Grid>
+</ContentPage>

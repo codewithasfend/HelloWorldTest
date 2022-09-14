@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RealEstateApp.SearchPage">
+    <!--Shell.PresentationMode="Modal"-->
+    <StackLayout>
+        <Frame Padding="10"
+               CornerRadius="0"
+               BackgroundColor="#1d94ab">
+            <StackLayout Orientation="Horizontal">
+                <ImageButton HeightRequest="30"
+                             WidthRequest="30"
+                             Source="left_arrow_icon.svg" />
+                <SearchBar Margin="20,0,0,0"
+                           x:Name="SbProperty"
+                           TextChanged="SbProperty_TextChanged"
+                           TextColor="Black"
+                           Placeholder="Search"
+                           BackgroundColor="White"
+                           VerticalOptions="FillAndExpand"
+                           HorizontalOptions="FillAndExpand" />
+            </StackLayout>
+        </Frame>
+        <CollectionView x:Name="CvSearch"
+                        SelectionMode="Single"
+                        Margin="0,10,0,0">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Span="1"
+                                 Orientation="Vertical" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Padding="10">
+
+                        <Label Text="{Binding Address}"
+                               FontSize="Subtitle" />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>
