@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="RealEstateApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:RealEstateApp"
+    Shell.FlyoutBehavior="Disabled">
+
+    <Shell.Resources>
+        <Style TargetType="TabBar">
+            <Setter Property="Shell.TabBarBackgroundColor"
+                    Value="White" />
+            <Setter Property="Shell.TabBarTitleColor"
+                    Value="#1d94ab" />
+            <Setter Property="Shell.TabBarUnselectedColor"
+                    Value="#78909c" />
+        </Style>
+    </Shell.Resources>
+   
+    <TabBar>
+      
+        <Tab Title="Home" Icon="home_icon.png">
+            <ShellContent ContentTemplate="{DataTemplate local:HomePage}" />
+        </Tab>
+        <Tab Title="Saved"
+             Icon="bookmark_icon.svg">
+            <ShellContent ContentTemplate="{DataTemplate local:BookmarkPage}" />
+        </Tab>
+        <Tab Title="Settings"
+             Icon="settings_icon.png">
+            <ShellContent ContentTemplate="{DataTemplate local:SettingsPage}" />
+        </Tab>
+    </TabBar>
+
+</Shell>
