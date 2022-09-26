@@ -38,112 +38,86 @@
             <Label Text="Categories"
                    FontSize="Large"
                    FontAttributes="Bold" />
-            <StackLayout Orientation="Horizontal"
-                         Spacing="20">
-                <Frame Padding="15,10,15,10"
-                       BackgroundColor="White">
-                    <StackLayout Orientation="Horizontal"
-                                 Spacing="5">
-                        <Image Source="dotnet_bot"
-                               Aspect="AspectFit"
-                               HeightRequest="30"
-                               WidthRequest="30" />
-                        <Label Text="House"
-                               VerticalOptions="Center"
-                               FontSize="Medium" />
-                    </StackLayout>
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer x:Name="TapCategory"
-                                              Tapped="TapCategory_Tapped" />
-                    </Frame.GestureRecognizers>
-                </Frame>
-                <Frame Padding="15,10,15,10"
-                       BackgroundColor="White">
-                    <StackLayout Orientation="Horizontal"
-                                 Spacing="5">
-                        <Image Source="dotnet_bot"
-                               Aspect="AspectFit"
-                               HeightRequest="30"
-                               WidthRequest="30" />
-                        <Label Text="Hotels"
-                               VerticalOptions="Center"
-                               FontSize="Medium" />
-                    </StackLayout>
-                </Frame>
-                <Frame Padding="15,10,15,10"
-                       BackgroundColor="White">
-                    <StackLayout Orientation="Horizontal"
-                                 Spacing="5">
-                        <Image Source="dotnet_bot"
-                               Aspect="AspectFit"
-                               HeightRequest="30"
-                               WidthRequest="30" />
-                        <Label Text="Appartments"
-                               VerticalOptions="Center"
-                               FontSize="Medium" />
-                    </StackLayout>
-                </Frame>
-            </StackLayout>
+
+            <CollectionView x:Name="CvCategories"
+                            SelectionMode="Single"
+                            SelectionChanged="CvCategories_SelectionChanged">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout ItemSpacing="20"
+                                       Orientation="Horizontal" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal"
+                                     Spacing="20">
+                            <Frame Padding="15,10,15,10"
+                                   BackgroundColor="White">
+                                <StackLayout Orientation="Horizontal"
+                                             Spacing="5">
+                                    <Image Source="{Binding FullImageUrl}"
+                                           Aspect="AspectFit"
+                                           HeightRequest="30"
+                                           WidthRequest="30" />
+                                    <Label Text="{Binding Name}"
+                                           VerticalOptions="Center"
+                                           FontSize="Medium" />
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </StackLayout>
+
         <StackLayout Orientation="Vertical"
                      Grid.Row="3"
                      Spacing="20">
             <Label Text="Top Picks"
                    FontSize="Large"
                    FontAttributes="Bold" />
-            <StackLayout Orientation="Horizontal"
-                         Spacing="20">
-                <Frame BackgroundColor="White"
-                       CornerRadius="30"
-                       Padding="15">
-                    <StackLayout Orientation="Vertical"
-                                 Spacing="10">
-                        <Border>
-                            <Image Source="house01.jpg"
-                                   Aspect="Fill"
-                                   HeightRequest="220"
-                                   WidthRequest="240" />
-                            <Border.StrokeShape>
-                                <RoundRectangle  CornerRadius="30" />
-                            </Border.StrokeShape>
-                        </Border>
-                        <Label Text="Modern Family House"
-                               FontSize="Subtitle"
-                               FontAttributes="Bold" />
-                        <Label Text="Old Downtown Road"
-                               LineBreakMode="TailTruncation"
-                               FontSize="Small" />
-                        <Label Text="85000 $"
-                               FontSize="Subtitle"
-                               TextColor="#1d94ab" />
-                    </StackLayout>
-                </Frame>
-                <Frame BackgroundColor="White"
-                       CornerRadius="30"
-                       Padding="15">
-                    <StackLayout Orientation="Vertical"
-                                 Spacing="10">
-                        <Border>
-                            <Image Source="house02.jpg"
-                                   Aspect="Fill"
-                                   HeightRequest="220"
-                                   WidthRequest="240" />
-                            <Border.StrokeShape>
-                                <RoundRectangle  CornerRadius="30" />
-                            </Border.StrokeShape>
-                        </Border>
-                        <Label Text="Modern Family House"
-                               FontSize="Subtitle"
-                               FontAttributes="Bold" />
-                        <Label Text="Old Downtown Road"
-                               LineBreakMode="TailTruncation"
-                               FontSize="Small" />
-                        <Label Text="85000 $"
-                               FontSize="Subtitle"
-                               TextColor="#1d94ab" />
-                    </StackLayout>
-                </Frame>
-            </StackLayout>
+            <CollectionView x:Name="CvTopPicks" 
+                            SelectionMode="Single"
+                            SelectionChanged="CvTopPicks_SelectionChanged">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout ItemSpacing="20"
+                                       Orientation="Horizontal" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal"
+                                     Spacing="20">
+                            <Frame BackgroundColor="White"
+                                   CornerRadius="30"
+                                   Padding="15">
+                                <StackLayout Orientation="Vertical"
+                                             Spacing="10">
+                                    <Border>
+                                        <Image Source="{Binding FullImageUrl}"
+                                               HeightRequest="200" 
+                                               Aspect="Fill" />
+                                        <Border.StrokeShape>
+                                            <RoundRectangle  CornerRadius="30" />
+                                        </Border.StrokeShape>
+                                    </Border>
+                                    <Label Text="{Binding Name}"
+                                           FontSize="Subtitle"
+                                           FontAttributes="Bold" />
+                                    <Label Text="{Binding Address}"
+                                           LineBreakMode="TailTruncation"
+                                           FontSize="Small" />
+                                    <Label Text="{Binding Price}"
+                                           FontSize="Subtitle"
+                                           TextColor="#1d94ab" />
+                                </StackLayout>
+                            </Frame>
+
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+
+
         </StackLayout>
     </Grid>
 </ContentPage>

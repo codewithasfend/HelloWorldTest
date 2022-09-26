@@ -50,6 +50,7 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Images\account_icon.png" />
+	  <None Remove="Resources\Images\appartment.png" />
 	  <None Remove="Resources\Images\back_icon.svg" />
 	  <None Remove="Resources\Images\bookmark_fill_icon.svg" />
 	  <None Remove="Resources\Images\bookmark_icon.svg" />
@@ -57,15 +58,30 @@
 	  <None Remove="Resources\Images\faq_icon.svg" />
 	  <None Remove="Resources\Images\favorite_icon.png" />
 	  <None Remove="Resources\Images\home_icon.png" />
+	  <None Remove="Resources\Images\hotel.png" />
 	  <None Remove="Resources\Images\hotel01.jpg" />
+	  <None Remove="Resources\Images\house.png" />
 	  <None Remove="Resources\Images\house01.jpg" />
 	  <None Remove="Resources\Images\house02.jpg" />
+	  <None Remove="Resources\Images\imagep1.jpg" />
+	  <None Remove="Resources\Images\imagep10.jpg" />
+	  <None Remove="Resources\Images\imagep11.jpg" />
+	  <None Remove="Resources\Images\imagep12.jpg" />
+	  <None Remove="Resources\Images\imagep2.jpg" />
+	  <None Remove="Resources\Images\imagep3.jpg" />
+	  <None Remove="Resources\Images\imagep4.jpg" />
+	  <None Remove="Resources\Images\imagep5.jpg" />
+	  <None Remove="Resources\Images\imagep6.jpg" />
+	  <None Remove="Resources\Images\imagep7.jpg" />
+	  <None Remove="Resources\Images\imagep8.jpg" />
+	  <None Remove="Resources\Images\imagep9.jpg" />
 	  <None Remove="Resources\Images\land01.jpg" />
 	  <None Remove="Resources\Images\left_arrow_icon.svg" />
 	  <None Remove="Resources\Images\location_icon.svg" />
 	  <None Remove="Resources\Images\logout_box_icon.svg" />
 	  <None Remove="Resources\Images\logout_icon.svg" />
 	  <None Remove="Resources\Images\message_icon.svg" />
+	  <None Remove="Resources\Images\penthouse.png" />
 	  <None Remove="Resources\Images\phone_icon.svg" />
 	  <None Remove="Resources\Images\privacy_icon.svg" />
 	  <None Remove="Resources\Images\search_icon.svg" />
@@ -73,16 +89,29 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <MauiXaml Update="Pages\BookmarkPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Pages\CustomTabbedPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\HomePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\LoginPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\PropertyDetailPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\PropertyListPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\RegisterPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\SearchPage.xaml">

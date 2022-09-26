@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RealEstateApp.LoginPage"
+             Shell.NavBarIsVisible="False"
+             Title="LoginPage">
+    <StackLayout Spacing="20"
+                 Margin="20,0,20,0"
+                 VerticalOptions="Center">
+
+        <Image Source="dotnet_bot.png"
+               HeightRequest="80"
+               WidthRequest="80"
+               HorizontalOptions="Center" />
+
+        <Label Text="Welcome Back!"
+               TextColor="#101010"
+               FontAttributes="Bold"
+               FontSize="Large"
+               HorizontalOptions="Center" />
+
+        <Label Text="Please enter your email or phone number below to start using the app."
+               TextColor="LightSlateGrey"
+               FontSize="Small"
+               HorizontalTextAlignment="Center" />
+        <Frame Padding="5"
+               CornerRadius="5">
+            <Entry x:Name="EntEmail"
+                   Placeholder="Email or phone number" />
+        </Frame>
+        <Frame Padding="5"
+               CornerRadius="5">
+            <Entry x:Name="EntPassword"
+                   Placeholder="Password"
+                   IsPassword="True" />
+        </Frame>
+
+
+        <Button x:Name="BtnSignIn"
+                Text="Sign In"
+                HeightRequest="50"
+                BackgroundColor="#1d94ab"
+                FontAttributes="Bold"
+                FontSize="Medium"
+                Clicked="BtnSignIn_Clicked"/>
+
+        <StackLayout Orientation="Horizontal"
+                     HorizontalOptions="Center">
+
+            <Label Text="Not a member?"
+                   TextColor="#101010"
+                   FontAttributes="Bold"
+                   FontSize="Medium" />
+
+            <Label Text=" Join now"
+                   TextColor="#1d94ab"
+                   FontAttributes="Bold"
+                   FontSize="Medium" />
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer x:Name="TapJoinNow" Tapped="TapJoinNow_Tapped"/>
+            </StackLayout.GestureRecognizers>
+        </StackLayout>
+
+    </StackLayout>
+</ContentPage>

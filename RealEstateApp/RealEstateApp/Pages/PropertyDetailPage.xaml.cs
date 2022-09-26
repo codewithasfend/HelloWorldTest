@@ -5,7 +5,7 @@ namespace MauiApp1;
 
 public partial class PropertyDetailPage : ContentPage
 {
-	public PropertyDetailPage()
+	public PropertyDetailPage(int propertyId)
 	{
 		InitializeComponent();
 	}
