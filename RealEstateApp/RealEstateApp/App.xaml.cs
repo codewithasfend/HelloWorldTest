@@ -10,6 +10,15 @@ public partial class App : Application
 
         // MainPage = new AppShell();
        // MainPage = new CustomTabbedPage();
-        MainPage = new LoginPage();
+       // MainPage = new LoginPage();
+        var accessToken = Preferences.Get("accessToken", string.Empty);
+        if (string.IsNullOrEmpty(accessToken))
+        {
+            MainPage = new NavigationPage(new LoginPage());
+        }
+        else
+        {
+            MainPage = new NavigationPage(new CustomTabbedPage());
+        }
     }
 }

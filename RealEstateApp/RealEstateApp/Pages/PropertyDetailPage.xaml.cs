@@ -1,20 +1,28 @@
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Devices;
+using RealEstateApp.Services;
 
 namespace MauiApp1;
 
 public partial class PropertyDetailPage : ContentPage
 {
-	public PropertyDetailPage(int propertyId)
-	{
-		InitializeComponent();
-	}
+    public PropertyDetailPage(int propertyId)
+    {
+        InitializeComponent();
+        GetPropertyDetail(propertyId);
+    }
+    
+    private async void GetPropertyDetail(int propertyId)
+    {
+        var property = await ApiService.GetPropertyDetail(propertyId);
+        LblAddress.Text= property.Address;
+        LblDescription.Text = property.Detail;
+        LblPrice.Text = "$ "+property.Price;
+        ImgProperty.Source = property.FullImageUrl;
 
-	private async void TapLocation_Tapped(object sender, EventArgs e)
-	{
-
-       
-
+    }
+    private async void TapLocation_Tapped(object sender, EventArgs e)
+    {
 
         if (DeviceInfo.Current.Platform == DevicePlatform.iOS)
         {
@@ -30,5 +38,28 @@ public partial class PropertyDetailPage : ContentPage
         {
             await Launcher.OpenAsync("bingmaps:?rtp=adr.394 Pacific Ave San Francisco CA~adr.One Microsoft Way Redmond WA 98052");
         }
+    }
+
+
+
+    private void TapPhone_Tapped(object sender, EventArgs e)
+    {
+
+    }
+
+    private void TapMessage_Tapped(object sender, EventArgs e)
+    {
+
+    }
+
+    private void ImgBack_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PopModalAsync();
+
+    }
+
+    private void TapBookmark_Tapped(object sender, EventArgs e)
+    {
+
     }
 }

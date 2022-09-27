@@ -50,8 +50,12 @@
                     <DataTemplate>
                         <StackLayout Orientation="Horizontal"
                                      Spacing="20">
-                            <Frame Padding="15,10,15,10"
-                                   BackgroundColor="White">
+                            <!--<Frame Padding="15,10,15,10"
+                                   BackgroundColor="White">-->
+                            <Border Stroke="LightGray"
+                                    StrokeThickness="1"
+                                    StrokeShape="RoundRectangle 10,10,10,10"
+                                    Padding="10">
                                 <StackLayout Orientation="Horizontal"
                                              Spacing="5">
                                     <Image Source="{Binding FullImageUrl}"
@@ -62,7 +66,8 @@
                                            VerticalOptions="Center"
                                            FontSize="Medium" />
                                 </StackLayout>
-                            </Frame>
+                            </Border>
+                            <!--</Frame>-->
                         </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
@@ -86,14 +91,19 @@
                     <DataTemplate>
                         <StackLayout Orientation="Horizontal"
                                      Spacing="20">
-                            <Frame BackgroundColor="White"
+                            <!--<Frame BackgroundColor="White"
                                    CornerRadius="30"
-                                   Padding="15">
+                                   Padding="15">-->
+                            <Border Stroke="LightGray"
+                                    StrokeThickness="1"
+                                    BackgroundColor="White"
+                                    StrokeShape="RoundRectangle 30,30,30,30"
+                                    Padding="15">
                                 <StackLayout Orientation="Vertical"
                                              Spacing="10">
                                     <Border>
                                         <Image Source="{Binding FullImageUrl}"
-                                               HeightRequest="200" 
+                                               HeightRequest="200"
                                                Aspect="Fill" />
                                         <Border.StrokeShape>
                                             <RoundRectangle  CornerRadius="30" />
@@ -109,8 +119,8 @@
                                            FontSize="Subtitle"
                                            TextColor="#1d94ab" />
                                 </StackLayout>
-                            </Frame>
-
+                                <!--</Frame>-->
+                            </Border>
                         </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>

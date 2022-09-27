@@ -24,8 +24,6 @@ public partial class HomePage : ContentPage
         Navigation.PushModalAsync(new SearchPage());
     }
 
-    // Navigation.PushAsync(new PropertyListPage());
-
     private async void GetTrendingProperties()
     {
         var properties = await ApiService.GetTrendingProperties();
