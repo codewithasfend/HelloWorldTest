@@ -8,23 +8,36 @@
                Padding="10"
                HorizontalOptions="Center"
                FontSize="Title" />
-        <StackLayout Margin="20,10"
-                     Spacing="5">
-            <Border>
-                <Image Source="house01.png"
-                       HeightRequest="250"
-                       Aspect="Fill" />
-                <Border.StrokeShape>
-                    <RoundRectangle CornerRadius="25" />
-                </Border.StrokeShape>
-            </Border>
+        <CollectionView x:Name="CvProperty"
+                        SelectionMode="Single"
+                        SelectionChanged="CvProperty_SelectionChanged">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="20"
+                                   Orientation="Vertical" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Margin="10,10,10,0"
+                                 Spacing="5">
+                        <Border>
+                            <Image Source="{Binding FullImageUrl}"
+                                   HeightRequest="220"
+                                   Aspect="Fill" />
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="25" />
+                            </Border.StrokeShape>
+                        </Border>
 
-            <Label Text="$200000"
-                   TextColor="Black"
-                   FontSize="Title"
-                   FontAttributes="Bold" />
-            <Label Text="Jensen , M1 49284 SF UAE" />
-        </StackLayout>
+                        <Label Text="{Binding Price}"
+                               TextColor="Black"
+                               FontSize="Title"
+                               FontAttributes="Bold" />
+                        <Label Text="{Binding Address}" />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
 
 
 

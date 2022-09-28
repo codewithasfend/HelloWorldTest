@@ -1,3 +1,4 @@
+using MauiApp1;
 using RealEstateApp.Models;
 using RealEstateApp.Services;
 using System.Collections.ObjectModel;
@@ -25,5 +26,13 @@ public partial class PropertyListPage : ContentPage
             PropertiesCollection.Add(property);
         }
         CvProperty.ItemsSource = PropertiesCollection;
+    }
+
+    private async void CvProperty_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        var currentSelection = e.CurrentSelection.FirstOrDefault() as PropertyByCategory;
+        if (currentSelection == null) return;
+        await Navigation.PushModalAsync(new PropertyDetailPage(currentSelection.Id));
+        ((CollectionView)sender).SelectedItem = null;
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RealEstateApp.Models
 {
-    public class Bookmark
+    public class AddBookmark
     {
         public int User_Id { get; set; }
         public int PropertyId { get; set; }

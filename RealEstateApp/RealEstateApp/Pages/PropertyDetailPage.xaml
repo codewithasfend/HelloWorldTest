@@ -25,11 +25,13 @@
                    WidthRequest="40"
                    HorizontalOptions="Start"
                    VerticalOptions="Start">
-                <ImageButton Source="back_icon.svg"
-                             HeightRequest="30"
-                             WidthRequest="30" 
-                             x:Name="ImgBack"
-                             Clicked="ImgBack_Clicked"/>
+                <Image Source="back_icon.svg"
+                       HeightRequest="30"
+                       WidthRequest="30" />
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="TapBack"
+                                          Tapped="TapBack_Tapped" />
+                </Frame.GestureRecognizers>
             </Frame>
 
             <Frame CornerRadius="12"
@@ -38,7 +40,7 @@
                    WidthRequest="40"
                    VerticalOptions="Start"
                    HorizontalOptions="EndAndExpand">
-                <Image Source="bookmark_icon.svg"
+                <Image x:Name="ImgBookmark"
                        HeightRequest="30"
                        WidthRequest="30" />
                 <Frame.GestureRecognizers>

@@ -1,9 +1,39 @@
+using MauiApp1;
+using RealEstateApp.Models;
+using RealEstateApp.Services;
+using System.Collections.ObjectModel;
+
 namespace RealEstateApp;
 
 public partial class BookmarkPage : ContentPage
 {
-	public BookmarkPage()
+
+    ObservableCollection<BookmarkList> PropertiesCollection;
+
+    public BookmarkPage()
+    {
+        InitializeComponent();
+        PropertiesCollection = new ObservableCollection<BookmarkList>();
+        GetPropertiesList();
+    }
+
+
+    private async void GetPropertiesList()
+    {
+        var properties = await ApiService.GetBookmarkList();
+        foreach (var property in properties)
+        {
+            PropertiesCollection.Add(property); 
+        }
+        CvProperty.ItemsSource = PropertiesCollection;
+    }
+   
+
+	private async void CvProperty_SelectionChanged(object sender, SelectionChangedEventArgs e)
 	{
-		InitializeComponent();
-	}
+        var currentSelection = e.CurrentSelection.FirstOrDefault() as BookmarkList;
+        if (currentSelection == null) return;
+        await Navigation.PushModalAsync(new PropertyDetailPage(currentSelection.Id));
+        ((CollectionView)sender).SelectedItem = null;
+    }
 }

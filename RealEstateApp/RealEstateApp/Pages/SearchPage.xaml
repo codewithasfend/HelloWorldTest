@@ -10,7 +10,9 @@
             <StackLayout Orientation="Horizontal">
                 <ImageButton HeightRequest="30"
                              WidthRequest="30"
-                             Source="left_arrow_icon.svg" />
+                             Source="left_arrow_icon.svg"
+                             x:Name="ImgBack"
+                             Clicked="ImgBack_Clicked" />
                 <SearchBar Margin="20,0,0,0"
                            x:Name="SbProperty"
                            TextChanged="SbProperty_TextChanged"

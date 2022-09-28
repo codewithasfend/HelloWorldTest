@@ -4,9 +4,10 @@
              x:Class="RealEstateApp.PropertyListPage">
 
     <CollectionView x:Name="CvProperty"
-                    SelectionMode="Single">
+                    SelectionMode="Single"
+                    SelectionChanged="CvProperty_SelectionChanged">
         <CollectionView.ItemsLayout>
-            <LinearItemsLayout ItemSpacing="20" 
+            <LinearItemsLayout ItemSpacing="20"
                                Orientation="Vertical" />
         </CollectionView.ItemsLayout>
         <CollectionView.ItemTemplate>
@@ -15,7 +16,7 @@
                              Spacing="5">
                     <Border>
                         <Image Source="{Binding FullImageUrl}"
-                               HeightRequest="200"
+                               HeightRequest="220"
                                Aspect="Fill" />
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="25" />

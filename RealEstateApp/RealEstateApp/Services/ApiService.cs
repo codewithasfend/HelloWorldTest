@@ -48,6 +48,14 @@ namespace RealEstateApp.Services
             return true;
         }
 
+        public static async Task<List<SearchProperty>> FindProperties(string address)
+        {
+            var httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
+            var response = await httpClient.GetStringAsync(AppSettings.ApiUrl + "api/Properties/SearchProperties?address=" + address);
+            return JsonConvert.DeserializeObject<List<SearchProperty>>(response);
+        }
+
         public static async Task<List<Category>> GetCategories()
         {
             var httpClient = new HttpClient();
@@ -87,7 +95,7 @@ namespace RealEstateApp.Services
             return JsonConvert.DeserializeObject<List<BookmarkList>>(response);
         }
 
-        public static async Task<bool> AddBookMark(Bookmark bookmark)
+        public static async Task<bool> AddBookMark(AddBookmark bookmark)
         {
             var httpClient = new HttpClient();
             var json = JsonConvert.SerializeObject(bookmark);

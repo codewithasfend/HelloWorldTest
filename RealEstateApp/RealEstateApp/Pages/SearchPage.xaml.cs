@@ -1,31 +1,27 @@
+using RealEstateApp.Services;
 using System.Collections.ObjectModel;
 
 namespace RealEstateApp;
 
 public partial class SearchPage : ContentPage
 {
-	public ObservableCollection<PropertySearch> PropertySearchCollection;
 	public SearchPage()
 	{
-		PropertySearchCollection = new ObservableCollection<PropertySearch>
-		{
-			new PropertySearch() { Address = "Dubai alshing" },
-            new PropertySearch() { Address = "Dubai a" },
-            new PropertySearch() { Address = "Dubai als" },
-			new PropertySearch() { Address = "Dubai alsh" },
-            new PropertySearch() { Address = "Dubai birkshire" },
-			new PropertySearch() { Address = "Dubai cpirtla" },
-			new PropertySearch() { Address = "Dubai dirlma" },
-        };
 		InitializeComponent();
 	}
 
-	private void SbProperty_TextChanged(object sender, TextChangedEventArgs e)
+	private async void SbProperty_TextChanged(object sender, TextChangedEventArgs e)
 	{
-		CvSearch.ItemsSource = PropertySearchCollection.Where(c=>c.Address.Contains(SbProperty.Text.ToLower()));
+        if (e.NewTextValue == null)
+        {
+            return;
+        }
+        var propertiesList = await ApiService.FindProperties(e.NewTextValue.ToLower());
+        CvSearch.ItemsSource = propertiesList;
     }
-	public class PropertySearch
+
+	private void ImgBack_Clicked(object sender, EventArgs e)
 	{
-		public string Address { get; set; }
-	}
+        Navigation.PopModalAsync(); 
+    }
 }
