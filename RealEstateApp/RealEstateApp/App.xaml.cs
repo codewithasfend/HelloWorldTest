@@ -8,9 +8,7 @@ public partial class App : Application
     {
         InitializeComponent();
 
-        // MainPage = new AppShell();
-       // MainPage = new CustomTabbedPage();
-       // MainPage = new LoginPage();
+     
         var accessToken = Preferences.Get("accessToken", string.Empty);
         if (string.IsNullOrEmpty(accessToken))
         {

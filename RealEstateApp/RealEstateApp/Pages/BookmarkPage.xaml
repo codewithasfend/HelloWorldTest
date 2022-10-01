@@ -3,12 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RealEstateApp.BookmarkPage">
  
-    <StackLayout Margin="20" Spacing="20">
-        <Label Text="Bookmarks"
+    <Grid RowDefinitions="Auto,*"
+          Margin="20"
+          RowSpacing="20">
+
+        <Label Grid.Row="0" Text="Bookmarks"
                HorizontalOptions="Center"
                FontSize="Header" />
-        <CollectionView x:Name="CvProperty"
-                        VerticalScrollBarVisibility="Always"
+        <CollectionView Grid.Row="1" x:Name="CvProperty"
+                        VerticalScrollBarVisibility="Never"
                         SelectionMode="Single"
                         SelectionChanged="CvProperty_SelectionChanged">
             <CollectionView.ItemsLayout>
@@ -25,13 +28,10 @@
                                 <Image Source="{Binding FullImageUrl}"
                                    HeightRequest="160"
                                    Aspect="Fill" />
-
                         </Frame>
-                     
                         <StackLayout Padding="15"
                                      Grid.Column="1"
                                      Spacing="10">
-
                             <Label Text="{Binding Price}"
                                    TextColor="Black"
                                    FontAttributes="Bold"
@@ -43,5 +43,5 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-    </StackLayout>
+    </Grid>
 </ContentPage>

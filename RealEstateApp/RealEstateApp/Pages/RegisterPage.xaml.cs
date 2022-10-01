@@ -15,6 +15,7 @@ public partial class RegisterPage : ContentPage
         var response = await ApiService.RegisterUser(EntFullName.Text, EntEmail.Text, EntPassword.Text, EntPhone.Text);
         if (response)
         {
+            Preferences.Set("username", EntFullName.Text);
             await DisplayAlert("", "Your account has been created", "Alright");
             await Navigation.PushModalAsync(new LoginPage());
         }
@@ -23,8 +24,6 @@ public partial class RegisterPage : ContentPage
             await DisplayAlert("Oops", "Something went wrong", "Cancel");
         }
 
-        // await Navigation.PushModalAsync(new LoginPage());	
-        //await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
     }
 
     private async void TapSignIn_Tapped(object sender, EventArgs e)

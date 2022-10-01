@@ -16,6 +16,8 @@ public partial class HomePage : ContentPage
         TopPicksCollection = new ObservableCollection<TrendingProperty>();
         GetCategories();
         GetTrendingProperties();
+       LblUserName.Text = "Hi " + Preferences.Get("username", string.Empty);
+
 
     }
 
