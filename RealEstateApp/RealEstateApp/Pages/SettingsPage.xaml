@@ -7,31 +7,51 @@
                HorizontalOptions="Center"
                FontSize="Header" />
 
+        <StackLayout Margin="0,40" Spacing="20">
 
-        <CollectionView x:Name="CvSettings"
-                        Margin="0,40,0,0"
-                        SelectionMode="Single">
-            <CollectionView.ItemsLayout>
-                <GridItemsLayout Span="1"
-                                 VerticalItemSpacing="20"
-                                 Orientation="Vertical" />
-            </CollectionView.ItemsLayout>
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <StackLayout Orientation="Horizontal"
+               <StackLayout Orientation="Horizontal"
                                  Spacing="20">
-                        <Image Source="{Binding ImageName}"
+                        <Image Source="account_icon"
                                HeightRequest="30"
                                WidthRequest="30" />
-                        <Label Text="{Binding Name}"
+                        <Label Text="About"
                                VerticalOptions="Center"
                                FontSize="Medium" />
                     </StackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+               <StackLayout Orientation="Horizontal"
+                                 Spacing="20">
+                        <Image Source="privacy_icon"
+                               HeightRequest="30"
+                               WidthRequest="30" />
+                        <Label Text="Privacy &amp; Security"
+                               VerticalOptions="Center"
+                               FontSize="Medium" />
+                    </StackLayout>
+               <StackLayout Orientation="Horizontal"
+                                 Spacing="20">
+                        <Image Source="faq_icon"
+                               HeightRequest="30"
+                               WidthRequest="30" />
+                        <Label Text="Help &amp; Support"
+                               VerticalOptions="Center"
+                               FontSize="Medium" />
+                    </StackLayout>
+               <StackLayout Orientation="Horizontal"
+                                 Spacing="20">
+                        <Image Source="logout_box_icon"
+                               HeightRequest="30"
+                               WidthRequest="30" />
+                        <Label Text="Logout"
+                               VerticalOptions="Center"
+                               FontSize="Medium" />
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="TapLogout" Tapped="TapLogout_Tapped"/>
 
-
+                </StackLayout.GestureRecognizers>
+                    </StackLayout>
+        </StackLayout>
+        
+      
 
     </StackLayout>
 </ContentPage>

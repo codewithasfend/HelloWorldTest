@@ -7,7 +7,6 @@ public partial class App : Application
     public App()
     {
         InitializeComponent();
-
      
         var accessToken = Preferences.Get("accessToken", string.Empty);
         if (string.IsNullOrEmpty(accessToken))
@@ -16,11 +15,7 @@ public partial class App : Application
         }
         else
         {
-            //MainPage = new NavigationPage(new CustomTabbedPage());
-           // MainPage = new CustomTabbedPage();
-            Application.Current.MainPage = new CustomTabbedPage();
-            //MainPage = new HomePage();
-
+            MainPage = new CustomTabbedPage();
         }
     }
 }
