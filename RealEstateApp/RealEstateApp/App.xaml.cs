@@ -19,7 +19,10 @@ public partial class App : Application
         else
         {
             //MainPage = new NavigationPage(new CustomTabbedPage());
-            MainPage = new CustomTabbedPage();
+           // MainPage = new CustomTabbedPage();
+            Application.Current.MainPage = new CustomTabbedPage();
+            //MainPage = new HomePage();
+
         }
     }
 }

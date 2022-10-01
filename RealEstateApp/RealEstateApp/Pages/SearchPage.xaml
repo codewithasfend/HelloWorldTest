@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RealEstateApp.SearchPage">
-    <!--Shell.PresentationMode="Modal"-->
     <StackLayout>
         <Frame Padding="10"
                CornerRadius="0"
@@ -10,7 +9,7 @@
             <StackLayout Orientation="Horizontal">
                 <ImageButton HeightRequest="30"
                              WidthRequest="30"
-                             Source="left_arrow_icon.svg"
+                             Source="left_arrow_icon"
                              x:Name="ImgBack"
                              Clicked="ImgBack_Clicked" />
                 <SearchBar Margin="20,0,0,0"
@@ -34,9 +33,8 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <StackLayout Padding="10">
-
                         <Label Text="{Binding Address}"
-                               FontSize="Subtitle" />
+                               FontSize="Medium" />
                     </StackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

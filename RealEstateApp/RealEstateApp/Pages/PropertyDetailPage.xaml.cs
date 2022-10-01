@@ -7,7 +7,7 @@ namespace MauiApp1;
 
 public partial class PropertyDetailPage : ContentPage
 {
-    private bool IsBookmarkEnabled;
+    private static bool IsBookmarkEnabled;
     private int propertyId;
     private int bookmarkId;
     public PropertyDetailPage(int propertyId)
@@ -26,12 +26,12 @@ public partial class PropertyDetailPage : ContentPage
         ImgProperty.Source = property.FullImageUrl;
         if (property.Bookmarks==null)
         {
-            ImgBookmark.Source = "bookmark_icon.svg";
+            ImgBookmark.Source = "bookmark_icon";
             IsBookmarkEnabled = false;
         }
         else
         {
-            ImgBookmark.Source = property.Bookmarks[0].Status ? "bookmark_fill_icon.svg" : "bookmark_icon.svg";
+            ImgBookmark.Source = property.Bookmarks[0].Status ? "bookmark_fill_icon" : "bookmark_icon";
             bookmarkId= property.Bookmarks[0].Id;
             IsBookmarkEnabled = true;
         }
@@ -65,7 +65,7 @@ public partial class PropertyDetailPage : ContentPage
             var response = await ApiService.AddBookMark(addBookmark);
             if (response)
             {
-                ImgBookmark.Source = "bookmark_fill_icon.svg";
+                ImgBookmark.Source = "bookmark_fill_icon";
                 IsBookmarkEnabled = true;
             }
         }
@@ -74,7 +74,7 @@ public partial class PropertyDetailPage : ContentPage
             var response = await ApiService.DeleteBookMark(bookmarkId);
             if (response)
             {
-                ImgBookmark.Source = "bookmark_icon.svg";
+                ImgBookmark.Source = "bookmark_icon";
                 IsBookmarkEnabled = false;
             }
         }

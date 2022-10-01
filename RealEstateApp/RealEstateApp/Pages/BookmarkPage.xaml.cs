@@ -14,7 +14,7 @@ public partial class BookmarkPage : ContentPage
     {
         InitializeComponent();
         PropertiesCollection = new ObservableCollection<BookmarkList>();
-       // GetPropertiesList();
+        GetPropertiesList();
     }
 
 
@@ -32,7 +32,7 @@ public partial class BookmarkPage : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        GetPropertiesList();
+        //GetPropertiesList();
 
     }
 
@@ -40,7 +40,7 @@ public partial class BookmarkPage : ContentPage
 	{
         var currentSelection = e.CurrentSelection.FirstOrDefault() as BookmarkList;
         if (currentSelection == null) return;
-        await Navigation.PushModalAsync(new PropertyDetailPage(currentSelection.Id));
+        await Navigation.PushModalAsync(new PropertyDetailPage(currentSelection.PropertyId));
         ((CollectionView)sender).SelectedItem = null;
     }
 }

@@ -26,16 +26,10 @@ public partial class LoginPage : ContentPage
             await DisplayAlert("Oops", "Something went wrong", "Cancel");
         }
 
-
-        //await Navigation.PushModalAsync(new HomePage());
-        // Application.Current.MainPage = new CustomTabbedPage();
-        //await Shell.Current.GoToAsync($"//MainPage");
-
     }
 
     private async void TapJoinNow_Tapped(object sender, EventArgs e)
     {
-        // await Shell.Current.GoToAsync($"{nameof(LoginPage)}/{nameof(RegisterPage)}");
         await Navigation.PushModalAsync(new RegisterPage());
 
     }

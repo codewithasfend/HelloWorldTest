@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RealEstateApp.HomePage"
@@ -54,7 +54,7 @@
                         <DataTemplate>
                             <StackLayout Orientation="Horizontal"
                                          Spacing="20">
-                                <Border Stroke="LightGray"
+                                <!--<Border Stroke="LightGray"
                                         StrokeThickness="1"
                                         StrokeShape="RoundRectangle 10,10,10,10"
                                         Padding="10">
@@ -68,7 +68,20 @@
                                                VerticalOptions="Center"
                                                FontSize="Medium" />
                                     </StackLayout>
-                                </Border>
+                                </Border>-->
+
+                                <Frame>
+                                       <StackLayout Orientation="Horizontal"
+                                                 Spacing="5">
+                                        <Image Source="{Binding FullImageUrl}"
+                                               Aspect="AspectFit"
+                                               HeightRequest="30"
+                                               WidthRequest="30" />
+                                        <Label Text="{Binding Name}"
+                                               VerticalOptions="Center"
+                                               FontSize="Medium" />
+                                    </StackLayout>
+                                </Frame>
                             </StackLayout>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
