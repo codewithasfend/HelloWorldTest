@@ -5,260 +5,132 @@
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="#fafafa">
 
-
-    <Grid RowDefinitions="Auto,Auto,Auto,Auto"
-          Margin="20"
-          RowSpacing="20">
-        <StackLayout Grid.Row="0"
-                     Spacing="5"
-                     Orientation="Vertical">
-            <Label Text="Hi John"
-                   FontSize="Large"
-                   FontAttributes="Bold" />
-            <Label Text="Find your best place to stay"
-                   FontSize="Medium"
-                   FontAttributes="Bold" />
-        </StackLayout>
-        <Frame Grid.Row="1"
-               Padding="15">
-            <StackLayout Orientation="Horizontal"
-                         Spacing="20">
-                <Image Source="search_icon.svg"
-                       Aspect="AspectFit"
-                       HeightRequest="25"
-                       WidthRequest="25" />
-                <Label Text="Search..."
-                       VerticalOptions="Center" />
+    <ScrollView>
+        <Grid RowDefinitions="Auto,Auto,Auto,Auto"
+              Margin="20"
+              RowSpacing="20">
+            <StackLayout Grid.Row="0"
+                         Spacing="5"
+                         Orientation="Vertical">
+                <Label Text="Hi John"
+                       FontSize="Large"
+                       FontAttributes="Bold" />
+                <Label Text="Find your best place to stay"
+                       FontSize="Medium"
+                       FontAttributes="Bold" />
             </StackLayout>
-            <Frame.GestureRecognizers>
-                <TapGestureRecognizer x:Name="TapSearch"
-                                      Tapped="TapSearch_Tapped" />
-            </Frame.GestureRecognizers>
-        </Frame>
-        <StackLayout Grid.Row="2"
-                     Spacing="20">
-            <Label Text="Categories"
-                   FontSize="Large"
-                   FontAttributes="Bold" />
-
-            <CollectionView x:Name="CvCategories"
-                            SelectionMode="Single"
-                            SelectionChanged="CvCategories_SelectionChanged">
-                <CollectionView.ItemsLayout>
-                    <LinearItemsLayout ItemSpacing="20"
-                                       Orientation="Horizontal" />
-                </CollectionView.ItemsLayout>
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <StackLayout Orientation="Horizontal"
-                                     Spacing="20">
-                            <!--<Frame Padding="15,10,15,10"
-                                   BackgroundColor="White">-->
-                            <Border Stroke="LightGray"
-                                    StrokeThickness="1"
-                                    StrokeShape="RoundRectangle 10,10,10,10"
-                                    Padding="10">
-                                <StackLayout Orientation="Horizontal"
-                                             Spacing="5">
-                                    <Image Source="{Binding FullImageUrl}"
-                                           Aspect="AspectFit"
-                                           HeightRequest="30"
-                                           WidthRequest="30" />
-                                    <Label Text="{Binding Name}"
-                                           VerticalOptions="Center"
-                                           FontSize="Medium" />
-                                </StackLayout>
-                            </Border>
-                            <!--</Frame>-->
-                        </StackLayout>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </StackLayout>
-
-        <StackLayout Orientation="Vertical"
-                     Grid.Row="3"
-                     Spacing="20">
-            <Label Text="Top Picks"
-                   FontSize="Large"
-                   FontAttributes="Bold" />
-            <CollectionView x:Name="CvTopPicks"
-                            SelectionMode="Single"
-                            SelectionChanged="CvTopPicks_SelectionChanged">
-                <CollectionView.ItemsLayout>
-                    <LinearItemsLayout ItemSpacing="20"
-                                       Orientation="Horizontal" />
-                </CollectionView.ItemsLayout>
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <StackLayout Orientation="Horizontal"
-                                     Spacing="20">
-                            <!--<Frame BackgroundColor="White"
-                                   CornerRadius="30"
-                                   Padding="15">-->
-                            <Border Stroke="LightGray"
-                                    StrokeThickness="1"
-                                    BackgroundColor="White"
-                                    StrokeShape="RoundRectangle 30,30,30,30"
-                                    Padding="15">
-                                <StackLayout Orientation="Vertical"
-                                             Spacing="10">
-                                    <Border>
-                                        <Image Source="{Binding FullImageUrl}"
-                                               HeightRequest="200"
-                                               Aspect="Fill" />
-                                        <Border.StrokeShape>
-                                            <RoundRectangle  CornerRadius="30" />
-                                        </Border.StrokeShape>
-                                    </Border>
-                                    <Label Text="{Binding Name}"
-                                           FontSize="Subtitle"
-                                           FontAttributes="Bold" />
-                                    <Label Text="{Binding Address}"
-                                           LineBreakMode="TailTruncation"
-                                           FontSize="Small" />
-                                    <Label Text="{Binding Price}"
-                                           FontSize="Subtitle"
-                                           TextColor="#1d94ab" />
-                                </StackLayout>
-                                <!--</Frame>-->
-                            </Border>
-                        </StackLayout>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-
-
-
-        </StackLayout>
-    </Grid>
-
-    <!--<Grid RowDefinitions="Auto,Auto,Auto,Auto"
-          Margin="20"
-          RowSpacing="20">
-        <StackLayout Grid.Row="0"
-                     Spacing="5"
-                     Orientation="Vertical">
-            <Label Text="Hi John"
-                   FontSize="Large"
-                   FontAttributes="Bold" />
-            <Label Text="Find your best place to stay"
-                   FontSize="Medium"
-                   FontAttributes="Bold" />
-        </StackLayout>
-        <Frame Grid.Row="1"
-               Padding="15">
-            <StackLayout Orientation="Horizontal"
+            <Frame Grid.Row="1"
+                   Padding="15">
+                <StackLayout Orientation="Horizontal"
+                             Spacing="20">
+                    <Image Source="search_icon.png"
+                           Aspect="AspectFit"
+                           HeightRequest="25"
+                           WidthRequest="25" />
+                    <Label Text="Search..."
+                           VerticalOptions="Center" />
+                </StackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="TapSearch"
+                                          Tapped="TapSearch_Tapped" />
+                </Frame.GestureRecognizers>
+            </Frame>
+            <StackLayout Grid.Row="2"
                          Spacing="20">
-                <Image Source="search_icon.svg"
-                       Aspect="AspectFit"
-                       HeightRequest="25"
-                       WidthRequest="25" />
-                <Label Text="Search..."
-                       VerticalOptions="Center" />
-            </StackLayout>
-            <Frame.GestureRecognizers>
-                <TapGestureRecognizer x:Name="TapSearch"
-                                      Tapped="TapSearch_Tapped" />
-            </Frame.GestureRecognizers>
-        </Frame>
-        <StackLayout Grid.Row="2"
-                     Spacing="20">
-            <Label Text="Categories"
-                   FontSize="Large"
-                   FontAttributes="Bold" />
+                <Label Text="Categories"
+                       FontSize="Large"
+                       FontAttributes="Bold" />
 
-            <CollectionView x:Name="CvCategories"
-                            SelectionMode="Single"
-                            SelectionChanged="CvCategories_SelectionChanged">
-                <CollectionView.ItemsLayout>
-                    <LinearItemsLayout ItemSpacing="20"
-                                       Orientation="Horizontal" />
-                </CollectionView.ItemsLayout>
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <StackLayout Orientation="Horizontal"
-                                     Spacing="20">
-                            --><!--<Frame Padding="15,10,15,10"
-                                   BackgroundColor="White">--><!--
-                            <Border Stroke="LightGray"
-                                    StrokeThickness="1"
-                                    StrokeShape="RoundRectangle 10,10,10,10"
-                                    Padding="10">
-                                <StackLayout Orientation="Horizontal"
-                                             Spacing="5">
-                                    <Image Source="{Binding FullImageUrl}"
-                                           Aspect="AspectFit"
-                                           HeightRequest="30"
-                                           WidthRequest="30" />
-                                    <Label Text="{Binding Name}"
-                                           VerticalOptions="Center"
-                                           FontSize="Medium" />
-                                </StackLayout>
-                            </Border>
-                            --><!--</Frame>--><!--
-                        </StackLayout>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </StackLayout>
-
-        <StackLayout Orientation="Vertical"
-                     Grid.Row="3"
-                     Spacing="20">
-            <Label Text="Top Picks"
-                   FontSize="Large"
-                   FontAttributes="Bold" />
-            <CollectionView x:Name="CvTopPicks" 
-                            SelectionMode="Single"
-                            SelectionChanged="CvTopPicks_SelectionChanged">
-                <CollectionView.ItemsLayout>
-                    <LinearItemsLayout ItemSpacing="20"
-                                       Orientation="Horizontal" />
-                </CollectionView.ItemsLayout>
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <StackLayout Orientation="Horizontal"
-                                     Spacing="20">
-                            --><!--<Frame BackgroundColor="White"
-                                   CornerRadius="30"
-                                   Padding="15">--><!--
-                            <Border Stroke="LightGray"
-                                    StrokeThickness="1"
-                                    BackgroundColor="White"
-                                    StrokeShape="RoundRectangle 30,30,30,30"
-                                    Padding="15">
-                                <StackLayout Orientation="Vertical"
-                                             Spacing="10">
-                                    <Border>
+                <CollectionView x:Name="CvCategories"
+                                HorizontalScrollBarVisibility="Never"
+                                HeightRequest="50"
+                                SelectionMode="Single"
+                                SelectionChanged="CvCategories_SelectionChanged">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout ItemSpacing="20"
+                                           Orientation="Horizontal" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Orientation="Horizontal"
+                                         Spacing="20">
+                                <Border Stroke="LightGray"
+                                        StrokeThickness="1"
+                                        StrokeShape="RoundRectangle 10,10,10,10"
+                                        Padding="10">
+                                    <StackLayout Orientation="Horizontal"
+                                                 Spacing="5">
                                         <Image Source="{Binding FullImageUrl}"
+                                               Aspect="AspectFit"
+                                               HeightRequest="30"
+                                               WidthRequest="30" />
+                                        <Label Text="{Binding Name}"
+                                               VerticalOptions="Center"
+                                               FontSize="Medium" />
+                                    </StackLayout>
+                                </Border>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+            <StackLayout Orientation="Vertical"
+                         Grid.Row="3"
+                         Spacing="20">
+                <Label Text="Top Picks"
+                       FontSize="Large"
+                       FontAttributes="Bold" />
+                <CollectionView x:Name="CvTopPicks"
+                                HeightRequest="350"
+                                SelectionMode="Single"
+                                SelectionChanged="CvTopPicks_SelectionChanged">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout ItemSpacing="20"
+                                           Orientation="Horizontal" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Orientation="Horizontal"
+                                         Spacing="20">
+                                <Border Stroke="LightGray"
+                                        StrokeThickness="1"
+                                        BackgroundColor="White"
+                                        StrokeShape="RoundRectangle 30,30,30,30"
+                                        Padding="15">
+
+                                    <Grid RowDefinitions="Auto,Auto,Auto,Auto"
+                                          RowSpacing="5">
+
+                                        <Frame Grid.Row="0"
                                                HeightRequest="200"
-                                               Aspect="Fill" />
-                                        <Border.StrokeShape>
-                                            <RoundRectangle  CornerRadius="30" />
-                                        </Border.StrokeShape>
-                                    </Border>
-                                    <Label Text="{Binding Name}"
-                                           FontSize="Subtitle"
-                                           FontAttributes="Bold" />
-                                    <Label Text="{Binding Address}"
-                                           LineBreakMode="TailTruncation"
-                                           FontSize="Small" />
-                                    <Label Text="{Binding Price}"
-                                           FontSize="Subtitle"
-                                           TextColor="#1d94ab" />
-                                </StackLayout>
-                                --><!--</Frame>--><!--
-                            </Border>
-                        </StackLayout>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+                                               WidthRequest="250"
+                                               CornerRadius="25"
+                                               IsClippedToBounds="True"
+                                               Padding="0">
+                                            <Image Source="{Binding FullImageUrl}"
+                                                   Aspect="Fill" />
+                                        </Frame>
 
-
-
-        </StackLayout>
-    </Grid>-->
-    
-    
+                                        <Label Grid.Row="1"
+                                               Text="{Binding Name}"
+                                               FontSize="Subtitle"
+                                               FontAttributes="Bold" />
+                                        <Label Grid.Row="2"
+                                               Text="{Binding Address}"
+                                               LineBreakMode="TailTruncation"
+                                               WidthRequest="250"
+                                               FontSize="Small" />
+                                        <Label Grid.Row="3"
+                                               Text="{Binding Price}"
+                                               FontSize="Subtitle"
+                                               TextColor="#1d94ab" />
+                                    </Grid>
+                                </Border>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </Grid>
+    </ScrollView>
 </ContentPage>

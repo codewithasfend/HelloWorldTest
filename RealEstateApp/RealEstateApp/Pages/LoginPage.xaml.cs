@@ -17,8 +17,8 @@ public partial class LoginPage : ContentPage
         Preferences.Set("password", EntPassword.Text);
         if (response)
         {
-            // Application.Current.MainPage = new NavigationPage(new HomePage());
-            Application.Current.MainPage = new NavigationPage(new CustomTabbedPage());
+           Application.Current.MainPage = new CustomTabbedPage();
+           // Application.Current.MainPage = new NavigationPage(new CustomTabbedPage());
 
         }
         else

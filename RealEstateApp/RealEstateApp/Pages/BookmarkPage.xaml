@@ -3,12 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RealEstateApp.BookmarkPage">
 
-    <StackLayout>
-        <Label Text="My Wishlist"
-               Padding="10"
+    <StackLayout Margin="20" Spacing="20">
+        <Label Text="Bookmarks"
                HorizontalOptions="Center"
                FontSize="Title" />
-        <CollectionView x:Name="CvProperty"
+        <CollectionView x:Name="CvProperty" 
                         SelectionMode="Single"
                         SelectionChanged="CvProperty_SelectionChanged">
             <CollectionView.ItemsLayout>
@@ -17,29 +16,29 @@
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <StackLayout Margin="10,10,10,0"
-                                 Spacing="5">
-                        <Border>
+                    <Grid ColumnDefinitions="4*,6*">
+                        <Border Grid.Column="0">
                             <Image Source="{Binding FullImageUrl}"
-                                   HeightRequest="220"
+                                   HeightRequest="160"
                                    Aspect="Fill" />
                             <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="25" />
                             </Border.StrokeShape>
                         </Border>
+                        <StackLayout Padding="15"
+                                     Grid.Column="1"
+                                     Spacing="10">
 
-                        <Label Text="{Binding Price}"
-                               TextColor="Black"
-                               FontSize="Title"
-                               FontAttributes="Bold" />
-                        <Label Text="{Binding Address}" />
-                    </StackLayout>
+                            <Label Text="{Binding Price}"
+                                   TextColor="Black"
+                                   FontSize="Title"
+                                   FontAttributes="Bold" />
+                            <Label Text="{Binding Name}" />
+                            <Label Text="{Binding Address}" />
+                        </StackLayout>
+                    </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-
-
-
-
     </StackLayout>
 </ContentPage>

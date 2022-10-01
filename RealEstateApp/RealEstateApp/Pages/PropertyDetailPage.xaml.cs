@@ -7,7 +7,7 @@ namespace MauiApp1;
 
 public partial class PropertyDetailPage : ContentPage
 {
-    private static bool IsBookmarkEnabled;
+    private bool IsBookmarkEnabled;
     private int propertyId;
     private int bookmarkId;
     public PropertyDetailPage(int propertyId)
@@ -36,26 +36,6 @@ public partial class PropertyDetailPage : ContentPage
             IsBookmarkEnabled = true;
         }
     }
-    private async void TapLocation_Tapped(object sender, EventArgs e)
-    {
-
-        if (DeviceInfo.Current.Platform == DevicePlatform.iOS)
-        {
-            // https://developer.apple.com/library/ios/featuredarticles/iPhoneURLScheme_Reference/MapLinks/MapLinks.html
-            await Launcher.OpenAsync("http://maps.apple.com/?daddr=San+Francisco,+CA&saddr=cupertino");
-        }
-        else if (DeviceInfo.Current.Platform == DevicePlatform.Android)
-        {
-            // opens the 'task chooser' so the user can pick Maps, Chrome or other mapping app
-            await Launcher.OpenAsync("http://maps.google.com/?daddr=San+Francisco,+CA&saddr=Mountain+View");
-        }
-        else if (DeviceInfo.Current.Platform == DevicePlatform.WinUI)
-        {
-            await Launcher.OpenAsync("bingmaps:?rtp=adr.394 Pacific Ave San Francisco CA~adr.One Microsoft Way Redmond WA 98052");
-        }
-    }
-
-
 
     private void TapPhone_Tapped(object sender, EventArgs e)
     {
@@ -67,7 +47,13 @@ public partial class PropertyDetailPage : ContentPage
 
     }
 
-    private async void TapBookmark_Tapped(object sender, EventArgs e)
+
+    private void ImgBackBtn_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PopModalAsync();
+    }
+
+    private async void ImgBookmark_Clicked(object sender, EventArgs e)
     {
         if (IsBookmarkEnabled== false)
         {
@@ -92,10 +78,5 @@ public partial class PropertyDetailPage : ContentPage
                 IsBookmarkEnabled = false;
             }
         }
-    }
-
-    private void TapBack_Tapped(object sender, EventArgs e)
-    {
-        Navigation.PopModalAsync();
     }
 }

@@ -8,6 +8,6 @@ namespace RealEstateApp
 {
     public static class AppSettings
     {
-        public static string ApiUrl = "http://andriela01-001-site1.ctempurl.com/";
+        public static string ApiUrl = "http://andriea-001-site1.ftempurl.com/";
     }
 }

@@ -14,12 +14,16 @@ namespace RealEstateApp.Models
 
         [JsonProperty("name")]
         public string Name { get; set; }
+        [JsonProperty("address")]
+        public string Address { get; set; }
 
         [JsonProperty("price")]
         public int Price { get; set; }
 
         [JsonProperty("imageUrl")]
         public string ImageUrl { get; set; }
+        public string FullImageUrl => AppSettings.ApiUrl + ImageUrl;
+
 
         [JsonProperty("status")]
         public bool Status { get; set; }

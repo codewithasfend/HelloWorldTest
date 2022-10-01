@@ -18,7 +18,8 @@ public partial class App : Application
         }
         else
         {
-            MainPage = new NavigationPage(new CustomTabbedPage());
+            //MainPage = new NavigationPage(new CustomTabbedPage());
+            MainPage = new CustomTabbedPage();
         }
     }
 }

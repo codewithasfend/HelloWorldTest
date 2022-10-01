@@ -14,7 +14,7 @@ public partial class BookmarkPage : ContentPage
     {
         InitializeComponent();
         PropertiesCollection = new ObservableCollection<BookmarkList>();
-        GetPropertiesList();
+       // GetPropertiesList();
     }
 
 
@@ -27,9 +27,16 @@ public partial class BookmarkPage : ContentPage
         }
         CvProperty.ItemsSource = PropertiesCollection;
     }
-   
 
-	private async void CvProperty_SelectionChanged(object sender, SelectionChangedEventArgs e)
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        GetPropertiesList();
+
+    }
+
+    private async void CvProperty_SelectionChanged(object sender, SelectionChangedEventArgs e)
 	{
         var currentSelection = e.CurrentSelection.FirstOrDefault() as BookmarkList;
         if (currentSelection == null) return;
